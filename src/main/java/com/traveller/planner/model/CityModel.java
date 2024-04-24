@@ -13,14 +13,16 @@ import org.springframework.stereotype.Component;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
+@Table(name = "city")
 @Entity
-public class UserModel {
-
+public class CityModel {
     @Id
-    private String username;
+    private String city_name;
     @Column
-    private String password;
+    private Double lat;
+    @Column(name = "long")
+    private Double city_long;
     @Column
-    private String city;
+    private String info;
+
 }
