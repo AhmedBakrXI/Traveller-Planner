@@ -3,32 +3,34 @@ package com.traveller.planner.service;
 import com.traveller.planner.model.UserModel;
 import com.traveller.planner.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
-    public UserModel checkUser(String userName,String password)
-    {
-        if(userName == null || password == null)
-        {
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+
+    public void registerUser(UserModel user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
+
+    public UserModel checkUser(String userName, String password) {
+        if (userName == null || password == null) {
             return null;
-        }
-        else
-        {
+        } else {
             UserModel user = userRepository.findByUsername(userName).orElse(null);
-            if(user == null)
-            {
+            if (user == null) {
                 return null;
-            }
-            else {
-                if(user.getPassword().equals(password))
-                {
+            } else {
+                if (user.getPassword().equals(password)) {
                     return user;
-                }
-                else
-                {
+                } else {
                     return null;
                 }
             }
