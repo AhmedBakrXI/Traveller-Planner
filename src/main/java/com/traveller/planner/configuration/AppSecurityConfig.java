@@ -41,15 +41,6 @@ public class AppSecurityConfig {
                 .build();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        UserDetails userDetails = User.builder()
-//                .username("Ahmed")
-//                .password(passwordEncoder().encode("1234"))
-//                .build();
-//        return new InMemoryUserDetailsManager(userDetails);
-//    }
-
     @Bean
     public UserDetailsService userDetailsService() {
         return userDetailsService;
@@ -67,7 +58,5 @@ public class AppSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
 
 }
