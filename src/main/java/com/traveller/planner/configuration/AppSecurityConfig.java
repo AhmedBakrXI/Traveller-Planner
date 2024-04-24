@@ -28,6 +28,7 @@ public class AppSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(registry -> {
+                    registry.requestMatchers("/css/**", "/js/**", "/images/**").permitAll();
                     registry.requestMatchers("/login", "/register").permitAll();
                     registry.anyRequest().authenticated();
                 })

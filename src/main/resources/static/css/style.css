@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url("../images/background3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: changeBackground 40s  infinite;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: -1;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.login-box {
+    position: relative;
+    width: 400px;
+    backdrop-filter: blur(35px);
+    border: 2px solid aliceblue;
+    border-radius: 15px;
+    padding: 7.5em 2.5em 4em 2.5em;
+    color: aliceblue;
+    box-shadow: 0px 0px 6px 4px #fdc0c033;
+}
+
+.login-header {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    width: 140px;
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+}
+
+.login-header span {
+    font-size: 28px;
+    color: black;
+}
+
+.login-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background: transparent;
+    box-shadow: 15px 0 0 0 aliceblue;
+}
+
+.login-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 50%;
+    background: transparent;
+    box-shadow: -15px 0 0 0 aliceblue;
+}
+
+.input-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.input-field {
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: aliceblue;
+    padding-inline: 20px 50px;
+    border: 2px solid aliceblue;
+    border-radius: 30px;
+    outline: none;
+}
+
+#username {
+    margin-bottom: 10px;
+}
+
+.label {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    transition: .2s;
+}
+
+.input-field:focus ~.label,
+.input-field:valid ~.label {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 14px;
+}
+
+.icon {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    font-size: 20px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.input-submit {
+    width: 100%;
+    height: 50px;
+    background: #ececec;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.input-submit:hover {
+    background: transparent;
+    border: 2px solid aliceblue;
+    color: aliceblue;
+    box-shadow: 0px 0px 6px 4px #fdc0c033;
+    font-size: 20px;
+
+}
+
+
+.register {
+    text-align: center;
+}
+
+.register a{
+    font-weight: 500;
+}
+
+option {
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+}
+
+
+@keyframes changeBackground {
+    0% {background-image: url("../images/background3.jpg");}
+    25% {background-image: url("../images/background1.jpg");}
+    50% {background-image: url("../images/background2.jpg");}
+    75% {background-image: url("../images/background.jpg");}
+}
+

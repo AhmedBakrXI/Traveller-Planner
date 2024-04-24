@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Registration Form</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -12,9 +12,9 @@
 
 <body>
 <div class="wrapper">
-    <form class="login-box" method="post" action="/login">
+    <form class="login-box" method="post" action="/register">
         <div class="login-header">
-            <span>Login</span>
+            <span>Register</span>
         </div>
         <div class="input-box">
             <input type="text" class="input-field" id="username" name="username" required>
@@ -27,17 +27,26 @@
             <i class="bx bx-lock-alt icon"></i>
         </div>
         <div class="input-box">
-            <input type="submit" class="input-submit" value="login">
+            <select class="input-field" id="city" name="city" required>
+                    <option value="" disabled selected>Select City</option>
+                    <option value="Cairo">Cairo</option>
+                    <option value="Paris">Paris</option>
+                    <option value="London">London</option>
+            </select>
+            <i class="bx bx-home-alt icon"></i>
+        </div>
+        <div class="input-box">
+            <input type="submit" class="input-submit" value="register">
         </div>
         <div class="register">
                 <span>
-                    Don't have an account?
-                    <a href="register">register now</a>
+                    You have an account?
+                    <a href="login">login now</a>
                 </span>
         </div>
     </form>
 </div>
-<script src="js/login.js"></script>
+<script src="js/register.js"></script>
 </body>
 
 </html>
