@@ -15,4 +15,5 @@ public class ContentController {
     public String login() {
         return "login";
     }
+
 }
