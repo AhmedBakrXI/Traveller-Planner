@@ -1,4 +1,12 @@
 package com.traveller.planner.service;
 
+import com.traveller.planner.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+
 }

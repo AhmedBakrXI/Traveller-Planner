@@ -10,17 +10,18 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-@Entity
-public class UserModel {
-
+@Table(name = "local_attractions")
+public class LocalAttractionModel {
     @Id
-    private String username;
+    private String name;
     @Column
-    private String password;
+    private String info;
     @Column
-    private String city;
+    private String image;
+    @Column
+    private String city_name;
 }
