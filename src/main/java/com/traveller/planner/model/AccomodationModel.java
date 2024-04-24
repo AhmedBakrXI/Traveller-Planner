@@ -24,6 +24,6 @@ public class AccomodationModel {
     private Double price;
     @Column
     private String image;
-    @Column
-    private String city_name;
+    @Column(name = "city_name") // Use the correct field name in the database
+    private String cityName; // Use camel case for the variable name
 }

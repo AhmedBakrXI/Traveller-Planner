@@ -28,6 +28,6 @@ public class FlightModel {
     private Double price;
     @Column
     private String logo;
-    @Column
-    private String city_name;
+    @Column(name = "city_name")
+    private String cityName;
 }
