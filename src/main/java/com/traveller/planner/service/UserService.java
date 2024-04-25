@@ -20,6 +20,10 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public UserModel getUser(String userName) {
+        return userRepository.findByUsername(userName).orElse(null);
+    }
+
     public UserModel checkUser(String userName, String password) {
         if (userName == null || password == null) {
             return null;

@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Entity
 public class CityModel {
     @Id
-    private String city_name;
+    private String cityName;
     @Column
     private Double lat;
     @Column(name = "long")

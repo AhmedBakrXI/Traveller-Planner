@@ -1,12 +1,7 @@
 package com.traveller.planner.controller;
 
 import com.traveller.planner.model.*;
-import com.traveller.planner.repository.CityRepository;
-import com.traveller.planner.service.AccomodationService;
-import com.traveller.planner.service.ActivityService;
-import com.traveller.planner.service.FlightService;
-import com.traveller.planner.service.LocalAttractionService;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import com.traveller.planner.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class CityController {
+
     @Autowired
-    private CityRepository cityRepository;
+    private UserService userService;
+
+    @Autowired
+    private CityService cityService;
 
     @Autowired
     private LocalAttractionService localAttractionService;
@@ -26,39 +25,36 @@ public class CityController {
     @Autowired
     private ActivityService activityService;
     @Autowired
-    private AccomodationService accomodationService;
+    private AccommodationService accommodationService;
+
     @GetMapping("/city")
     public List<CityModel> getCities() {
-        return cityRepository.findAll();
+        return cityService.getAllCities();
     }
 
     @GetMapping("/usercity")
     public CityModel getUserCity() {
-        return new CityModel("Gaza", 30.5, 35.6, "Earth Lords");
+        return cityService.getUserCity();
     }
 
-    /************************* remove ya bakr *********************/
-    @GetMapping("/test")
-    public List<LocalAttractionModel> test()
-    {
-        return localAttractionService.getAllLocalAttraction("Alex");
-    }
-    @GetMapping("/flight")
-    public List<FlightModel> testawy()
-    {
-        return flightService.getAllFlightsByDestinationAndCity("Alex","Cairo");
-    }
-    @GetMapping("/activity")
-    public List<ActivityModel> activity()
-    {
-        return activityService.getAllActivities("Alex");
+    @PostMapping("/flights")
+    public List<FlightModel> getFlights(@RequestBody String destination) {
+        return flightService.getAllFlightsByDestinationAndCity(destination);
     }
 
-    @GetMapping("/accomo")
-    public List<AccomodationModel> accomo()
-    {
-        return accomodationService.getAllAccomodations("Cairo");
+    @GetMapping("/activities")
+    public List<ActivityModel> getActivity(@RequestBody String destination) {
+        return activityService.getAllActivities(destination);
     }
-    /*************************************************/
+
+    @PostMapping("/accommodations")
+    public List<AccomodationModel> getAccommodations(@RequestBody String destination) {
+        return accommodationService.getAllAccommodations(destination);
+    }
+
+    @PostMapping("/local-attractions")
+    public List<LocalAttractionModel> getLocalAttractions(@RequestBody String destination) {
+        return localAttractionService.getAllLocalAttraction(destination);
+    }
 
 }

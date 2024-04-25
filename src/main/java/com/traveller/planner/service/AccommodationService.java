@@ -1,8 +1,8 @@
 package com.traveller.planner.service;
 
-import com.traveller.planner.model.ActivityModel;
+import com.traveller.planner.model.AccomodationModel;
 import com.traveller.planner.model.UserModel;
-import com.traveller.planner.repository.ActivityRepository;
+import com.traveller.planner.repository.AccomodationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ActivityService {
+public class AccommodationService {
     @Autowired
-    private UserService userService;
+    private AccomodationRepository accommodationRepository;
 
-    @Autowired
-    private ActivityRepository activityRepository;
-    public List<ActivityModel> getAllActivities(String destination)
+
+
+    public List<AccomodationModel> getAllAccommodations(String destination)
     {
-        return activityRepository.findByCityName(destination);
+        return accommodationRepository.findByCityName(destination);
     }
 }

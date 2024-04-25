@@ -3,5 +3,6 @@ package com.traveller.planner.repository;
 import com.traveller.planner.model.CityModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CityRepository extends JpaRepository<CityModel,String> {
+public interface CityRepository extends JpaRepository<CityModel, String> {
+     CityModel findByCityName(String cityName);
 }
