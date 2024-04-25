@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface LocalAttractionRepository extends JpaRepository<LocalAttractionModel,String> {
-    public List<LocalAttractionModel> findByCityName(String cityName);
+public interface LocalAttractionRepository extends JpaRepository<LocalAttractionModel, String> {
+    List<LocalAttractionModel> findByCityName(String cityName);
 }
