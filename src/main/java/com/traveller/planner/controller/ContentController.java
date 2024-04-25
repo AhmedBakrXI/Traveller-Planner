@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ContentController {
     @GetMapping("/home")
     public String home() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        System.out.println(username);
         return "home";
     }
 
@@ -25,5 +22,10 @@ public class ContentController {
     @GetMapping("/register")
     public String register() {
         return "register";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
     }
 }
