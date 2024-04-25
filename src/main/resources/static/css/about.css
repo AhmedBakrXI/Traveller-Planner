@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: #202123;
+  }
+  
+input {
+  margin: 1.5vh 4vw 0 4vw;
+  width: 16vw;
+  height: 4vh;
+  border-radius: 0.5vw;
+}
+
+.topnav{
+  position: relative;
+  background-color: #34353B;
+  height: 7vh;
+}
+.globe {
+  position: absolute;
+  float: left;
+  width: auto;  
+  height: 8vh;  
+}
+.button1{
+  margin: 1vh 2vw 0 7vw;
+}
+button {
+  width: 10vw;
+  height: 4vh;
+  border-radius: 1vw;
+  margin: 1vh 3vw 0 3vw;
+  background-color: #135C7E;
+  color: white;
+}
+
+  .content {
+    clear: both;
+    height: 40vh;
+    background-image: url('../images/about_images/earth-background.jpg');
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 45px;
+    font-family: Staatliches;
+    text-align: center;
+    color: white;
+  }
+  .vision{
+    height: 20vh;
+  }
+  .footer{
+    background-color: #D9D9D9;
+  }
+  
+  p{
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .h1{
+    font-family: K2D;
+    font-size: 30px;
+  }
+  .h2{
+    font-size: 15px;
+  }
+  .h5{
+    display: inline;
+    color: black;
+    text-align: left;
+    font-family: K2D;
+    font-size: 30px;
+    margin: 0 8vw 0 8vw;
+  }
+  
