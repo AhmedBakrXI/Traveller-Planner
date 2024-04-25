@@ -14,7 +14,12 @@ public class RegistrationController {
 
     @PostMapping("/register")
     public String createUser(@ModelAttribute UserModel user) {
-        userService.registerUser(user);
-        return "redirect:/login";
+        if (userService.getUser(user.getUsername()) == null) {
+            userService.registerUser(user);
+            return "redirect:/login";
+        } else  {
+            return "redirect:/register?error";
+        }
+
     }
 }

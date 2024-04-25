@@ -1,4 +1,12 @@
 const options = document.getElementById('city');
+const url = new URL(window.location.href)
+const errorMessage = url.searchParams.has('error');
+const logHead = document.getElementById('log-head')
+if (errorMessage) {
+    const html =
+        '<div class="input-box" style="align-items: center;"><h2>Username not valid</h2></div>';
+    logHead.insertAdjacentHTML("afterend", html);
+}
 
 fetch('/api/city')
   .then(response => {

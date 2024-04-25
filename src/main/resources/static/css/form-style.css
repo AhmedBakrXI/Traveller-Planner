@@ -187,11 +187,5 @@ option {
     font-weight: 500;
 }
 
-@keyframes changeBackground {
-    0% {background-image: url('../images/backgrounds/b1.jpg');}
-    25% {background-image: url('../images/backgrounds/b2.jpg');}
-    50% {background-image: url('../images/backgrounds/b3.jpg');}
-    75% {background-image: url('../images/backgrounds/b4.jpg');}
-}
 
 
