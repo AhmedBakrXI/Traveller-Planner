@@ -57,4 +57,11 @@ public class CityController {
         return localAttractionService.getAllLocalAttraction(destination);
     }
 
+    @PostMapping("/fake")
+    public List<CityModel> getFakeCities(@RequestBody String destination) {
+        System.out.println(destination);
+        return List.of(new CityModel("aa", 22.5, 22.5, "info"),
+                new CityModel("aaaaaa", 22.5, 22.5, "info"));
+    }
+
 }
