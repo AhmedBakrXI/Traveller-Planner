@@ -68,6 +68,20 @@ button {
   .h2{
     font-size: 15px;
   }
+  .h3{
+    display: inline;
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 20vw 0 0;
+  }
+  .h4{
+    text-align: left;
+    display: block;
+    font-size: 12px;
+    margin: 0 0 5vh 0;
+  }
   .h5{
     display: inline;
     color: black;
@@ -76,4 +90,54 @@ button {
     font-size: 30px;
     margin: 0 8vw 0 8vw;
   }
+  .icon{
+    height: 5vh;
+    width: auto;
+    margin-left:15vw ;
+  }
+  .icon2{
+    height: 5vh;
+    width: auto;
+    margin-left:15vw ;
+  }
+  .icon3{
+    height: 5vh;
+    width: auto;
+    margin-left:15vw ;
+  }
+  .icon4{
+    height: 5vh;
+    width: auto;
+    margin-left:15vw ;
+  }
+  .icon5{
+    height: 5vh;
+    width: auto;
+    margin-left:15vw ;
+  }
+  .travel{
+    height: 50vh;
+    width: auto;
+    margin:0 10vw 0 10vw;
+  }
+  .icon,.features1{
+    display: inline-block;
+  }
+  .icon2,.features2{
+    display: inline-block;
+  }
+  .icon3,.features3{
+    display: inline-block;
+  }
+  .icon4,.features4{
+    display: inline-block;
+  }
+  .icon5,.features5{
+    display: inline-block;
+  }
+  .features {
+    display: flex;  /* Use Flexbox layout */
+    align-items: center;  /* Align items vertically to the center */
+    justify-content: space-between;/* Distribute space between items */
+}
   
