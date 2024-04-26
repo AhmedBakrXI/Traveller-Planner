@@ -10,39 +10,61 @@ L.control.maptilerGeocoding({ apiKey: key }).addTo(map);
 
 var marker;
 
-var leafletIcon = L.icon({
-    iconUrl: '../imgs/pin.png',
+var defaultIcon  = L.icon({
+    iconUrl: '../images/home_page/pin.png',
     iconSize: [32, 32], // Size of the icon
     iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
     popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
 });
 
-map.on('click', function(e) {
-    var lat = e.latlng.lat;  
-    var lng = e.latlng.lng;  
+var flagIcon = L.icon({ // Flag icon
+    iconUrl: '../images/home_page/flag.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32]
+});
 
-    // Remove previous marker (if any)
-    if (marker) {
-        map.removeLayer(marker);
-    }
+    //var lat = e.latlng.lat;  
+    //var lng = e.latlng.lng;  
 
-    // Add a new marker at the clicked position
-    marker = L.marker([lat, lng], {icon: leafletIcon}).addTo(map);
+    
+var chosenMarker = null; // Variable to store the currently chosen marker
+var chosenCity = null; // Variable to store the name of the chosen city
 
-    // Perform reverse geocoding
-    fetch(`https://api.maptiler.com/geocoding/${lng},${lat}.json?key=JAIrgQ3Wm2cZgks51HZC`)
+fetch('/api/city')
     .then(response => response.json())
     .then(data => {
-        // Extract country name from the JSON response
-        var cityName = data.features[5].text;
-        
-        // Create a popup with the country name and attach it to the marker
-        marker.bindPopup(cityName).openPopup();
+        data.forEach(city => {
+            var lat = city.lat;
+            var lng = city.city_long;
+            var city_name = city.cityName;
+            var cityInfo = city.info;
+            
+            var marker = L.marker([lat, lng], { icon: defaultIcon }).addTo(map);
+
+            // Event listener for marker click
+            marker.on('click', function(e) {
+                chosenCity = city_name; // Update chosenCity variable with the name of the clicked city
+                // If another marker is already selected, revert its icon back to the default
+                if (chosenMarker && chosenMarker !== marker) {
+                    chosenMarker.setIcon(defaultIcon);
+                }
+                // Update the chosenMarker variable with the clicked marker
+                chosenMarker = marker;
+    
+                if (marker.getIcon() === defaultIcon) {
+                    marker.setIcon(flagIcon);
+                } else {
+                    marker.setIcon(defaultIcon);
+                }
+                // Toggle the icon between default and flag
+            });
+            marker.bindPopup(`<b>${city_name}</b><br>${cityInfo}`).openPopup();
+        });
     })
     .catch(error => {
         console.error('Error:', error);
     });
-});
 
 
 
