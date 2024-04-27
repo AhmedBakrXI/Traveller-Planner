@@ -28,8 +28,8 @@ public class AppSecurityConfig {
                     registry.requestMatchers("/css/**", "/js/**", "/images/**").permitAll();
                     registry.requestMatchers("/login", "/register").permitAll();
                     registry.requestMatchers("/api/city").permitAll();
-//                    registry.anyRequest().authenticated();
-                    registry.anyRequest().permitAll();
+                    registry.anyRequest().authenticated();
+//                    registry.anyRequest().permitAll();
                 })
                 .formLogin(httpSecurityFormLoginConfigurer -> {
                     httpSecurityFormLoginConfigurer
