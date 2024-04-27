@@ -13,9 +13,7 @@ public class AccommodationService {
     private AccommodationRepository accommodationRepository;
 
 
-
-    public List<AccomodationModel> getAllAccommodations(String destination)
-    {
+    public List<AccomodationModel> getAllAccommodations(String destination) {
         return accommodationRepository.findByCityName(destination);
     }
 }

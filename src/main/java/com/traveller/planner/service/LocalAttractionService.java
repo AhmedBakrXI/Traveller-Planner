@@ -11,13 +11,11 @@ import java.util.List;
 public class LocalAttractionService {
     @Autowired
     private LocalAttractionRepository localAttractionRepository;
-    public List<LocalAttractionModel> getAllLocalAttraction(String city)
-    {
-        if(city == null)
-        {
+
+    public List<LocalAttractionModel> getAllLocalAttraction(String city) {
+        if (city == null) {
             return null;
-        }
-        else {
+        } else {
             return localAttractionRepository.findByCityName(city);
         }
     }

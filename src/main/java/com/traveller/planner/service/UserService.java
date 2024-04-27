@@ -12,7 +12,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
 
     public void registerUser(UserModel user) {

@@ -17,8 +17,8 @@ public class ActivityService {
 
     @Autowired
     private ActivityRepository activityRepository;
-    public List<ActivityModel> getAllActivities(String destination)
-    {
+
+    public List<ActivityModel> getAllActivities(String destination) {
         return activityRepository.findByCityName(destination);
     }
 }

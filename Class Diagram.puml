@@ -1,0 +1,191 @@
+@startuml
+package com.traveller.planner {
+    package "configuration" {
+        class AppSecurityConfig{
+            - userDetailsService: UserDetailsService
+            + securityFilterChain(httpSecurity: HttpSecurity): SecurityFilterChain
+            + userDetailsService(): UserDetailsService
+            + authenticationProvider(): AuthenticationProvider
+            + passwordEncoder(): PasswordEncoder
+        }
+        class MyAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
+            +onAuthenticationSuccess(request: HttpServletRequest, response: HttpServletResponse, authentication: Authentication): void
+        }
+    }
+
+    package controller {
+        class CityController {
+            - userService: UserService
+            - cityService: CityService
+            - localAttractionService: LocalAttractionService
+            - flightService: FlightService
+            - activityService: ActivityService
+            - accommodationService: AccommodationService
+
+            + getCities(): List<CityModel>
+            + getUserCity(): CityModel
+            + getFlights(destination: String): List<FlightModel>
+            + getAccommodations(destination: String): List<AccommodationModel>
+            + getActivity(destination: String): List<ActivityModel>
+            + getLocalAttractions(destination: String): List<LocalAttractionModel>
+        }
+
+        class ContentController {
+            + home(): String
+            + login(): String
+            + register(): String
+            + about(): String
+        }
+
+        class RegistrationController {
+            - userService: UserService
+            + createUser(user: UserModel): String
+        }
+    }
+
+
+    package model {
+        class UserModel {
+            - username: String
+            - password: String
+            - city: String
+        }
+
+        class CityModel {
+            - cityName: String
+            - lat: Double
+            - city_long: Double
+            - info: String
+        }
+
+        class AccommodationModel {
+            - hotel_name: String
+            - stars: Integer
+            - price: Double
+            - image: String
+            - cityName: String
+        }
+
+        class FlightModel {
+            - id: Integer
+            - company: String
+            - time_start: String
+            - time_end: String
+            - destination: String
+            - price: Double
+            - logo: String
+            - cityName: String
+        }
+
+        class LocalAttractionModel {
+            - name: String
+            - info: String
+            - image: String
+            - cityName: String
+        }
+
+        class ActivityModel {
+            - name: String
+            - price: Double
+            - info: String
+            - image: String
+            - cityName: String
+        }
+    }
+
+    package repository {
+        interface AccommodationRepository extends JpaRepository {
+            + {static} findByCityName(cityName: String): List<AccomodationModel>
+        }
+
+        interface ActivityRepository extends JpaRepository {
+            + {static} findByCityName(cityName: String): List<ActivityModel>
+        }
+
+        interface CityRepository extends JpaRepository {
+            + {static} findByCityName(cityName: String): List<CityModel>
+        }
+
+        interface FlightRepository extends JpaRepository {
+            + {static} findByCityNameAndDestination(cityName: String, destination: String): List<FlightModel>
+        }
+
+        interface LocalAttractionRepository extends JpaRepository {
+            + {static} findByCityName(cityName: String): List<LocalAttractionModel>
+        }
+
+        interface UserRepository extends JpaRepository {
+            + {static} findByUsername(userName: String): Optional<UserModel>
+        }
+    }
+
+    package service {
+        class AccommodationService {
+            - accommodationRepository: AccommodationRepository
+            + getAllAccommodations(destination: String): List<AccomodationModel>
+        }
+
+        class ActivityService {
+            - userService: UserService
+            - activityRepository: ActivityRepository
+            + getAllActivities(destination: String): List<ActivityModel>
+        }
+
+        class CityService {
+            - cityRepository: CityRepository
+            - userService: UserService
+            + getUserCity(): CityModel
+            + getAllCities(): List<CityModel>
+        }
+
+        class FlightService {
+            - flightRepository: FlightRepository
+            - userService: UserService
+            + getAllFlightsByDestinationAndCity(destination: String): List<FlightModel>
+        }
+
+        class LocalAttractionService {
+            - localAttractionRepository: LocalAttractionRepository
+            + getAllLocalAttraction(city: String): List<LocalAttractionModel>
+        }
+
+        class UserService {
+            - userRepository: UserRepository
+            - passwordEncoder: PasswordEncoder
+            + registerUser(user: UserModel): void
+            + getUser(username: String): UserModel
+            + checkUser(userName: String, password: String): UserModel
+        }
+
+        class MyUserDetailsService implements UserDetailsService {
+            - userRepository: UserRepository
+            + loadUserByUsername(username: String): UserDetailsService
+        }
+    }
+}
+
+AppSecurityConfig "1" *-- "1" MyAuthenticationSuccessHandler
+AccommodationService "1" *-- "1" AccommodationRepository
+MyUserDetailsService "1" *-- "1" UserRepository
+ActivityService "1" *-- "1" ActivityRepository
+ActivityService "1" *-- "1" UserRepository
+CityService "1" *-- "1" CityRepository
+CityService "1" *-- "1" UserService
+FlightService "1" *-- "1" FlightRepository
+FlightService "1" *-- "1" UserService
+LocalAttractionService "1" *-- "1" LocalAttractionRepository
+UserService "1" *-- "1" UserRepository
+UserModel "1..*" -- "1" UserRepository
+CityModel "1..*" -- "1" CityRepository
+ActivityModel "1..*" -- "1" ActivityRepository
+LocalAttractionModel "1..*" -- "1" LocalAttractionRepository
+ActivityModel "1..*" -- "1" ActivityRepository
+FlightModel "1..*" -- "1" FlightRepository
+RegistrationController "1" *-- "1" UserService
+CityController "1" *-- "1" UserService
+CityController "1" *-- "1" CityService
+CityController "1" *-- "1" LocalAttractionService
+CityController "1" *-- "1" FlightService
+CityController "1" *-- "1" ActivityService
+CityController "1" *-- "1" AccommodationService
+@enduml
