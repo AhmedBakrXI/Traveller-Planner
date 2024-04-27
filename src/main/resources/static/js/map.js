@@ -85,6 +85,7 @@ fetch('/api/city')
             console.error('Error:', error);
           });
 
+
         // Fetch activities data for the chosen city
         fetch('/api/activities', {
           method: 'POST',

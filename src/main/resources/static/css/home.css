@@ -261,6 +261,11 @@ div.leaflet-control-zoom.leaflet-bar.leaflet-control{
             margin-left: 95vw;
             margin-top:85vh;
 }
+.offcanvas{
+  overflow: scroll; 
+  scrollbar-color: grey black;
+  max-height: 80 vh;
+}
 
 .inner {
   display: flex;
