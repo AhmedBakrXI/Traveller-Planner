@@ -182,7 +182,7 @@ button:hover
 .sidebar {
   display: table;
   height: 100%;
-  width: 0%;
+  width: 10vw;
   position: fixed;
   z-index: -1;
   top: 0;

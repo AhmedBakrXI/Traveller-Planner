@@ -5,20 +5,24 @@ body {
     height: 100vh;
     background-color: #202123;
   }
-  
+
+/*style for a search box*/
+
 input {
-  margin: 1.5vh 4vw 0 4vw;
+  margin: 1.5vh 6vw 0 6vw;
   width: 16vw;
   height: 4vh;
   border-radius: 0.5vw;
 }
 
+/*style for top bar*/
 .topnav{
   position: relative;
   background-color: #34353B;
   height: 7vh;
   z-index: 1;
 }
+/*style for the globe icon*/
 .globe {
   position: absolute;
   float: left;
@@ -29,10 +33,10 @@ input {
   margin: 1vh 2vw 0 7vw;
 }
 button {
-  width: 10vw;
-  height: 4vh;
+  width: 14vw;
+  height: 4.5vh;
   border-radius: 1vw;
-  margin: 1vh 3vw 0 3vw;
+  margin: 1vh 4vw 0 4vw;
   background-color: #135C7E;
   color: white;
 }
@@ -71,6 +75,8 @@ button {
   }
   .footer{
     background-color: #D9D9D9;
+    display: flex;
+    height: 20vh;
   }
   
   p{
@@ -80,6 +86,7 @@ button {
   }
   .h1{
     font-family: K2D;
+    font-weight: bold;
     font-size: 30px;
   }
   .h2{
@@ -100,8 +107,8 @@ button {
     margin: 0 0 5vh 0;
   }
   .h5{
-    display: inline;
     color: black;
+    font-weight: bold;
     text-align: left;
     font-family: K2D;
     font-size: 30px;
@@ -157,4 +164,131 @@ button {
     align-items: center;  /* Align items vertically to the center */
     justify-content: space-between;/* Distribute space between items */
 }
-  
+
+/*style for a card */
+.card{
+  display: inline-block;
+  width: 10vw;
+  height: 30vh;
+  margin: 0 3vw 5vh 3vw;
+  background-color: #19191b;
+  border-radius: 0.5vw;
+}
+
+.left-card{
+  display: inline-block;
+  width: 10vw;
+  height: 30vh;
+  margin: 0 3vw 5vh 20vw;
+  background-color: #19191b;
+  border-radius: 0.5vw;
+}
+
+.lleft-card{
+  display: inline-block;
+  width: 10vw;
+  height: 30vh;
+  margin: 0 3vw 5vh 36vw;
+  background-color: #19191b;
+  border-radius: 0.5vw;
+}
+
+.right-card{
+  display: inline-block;
+  width: 10vw;
+  height: 30vh;
+  margin: 0 20vw 5vh 3vw;
+  background-color: #19191b;
+  border-radius: 0.5vw;
+}
+
+.lright-card{
+  display: inline-block;
+  width: 10vw;
+  height: 30vh;
+  margin: 0 20vw 5vh 3vw;
+  background-color: #19191b;
+  border-radius: 0.5vw;
+}
+
+.left-card2{
+  display: inline-block;
+  width: 13vw;
+  height: 14vh;
+  margin: 0 2vw 10vh 35vw;
+  background-color: #19191b;
+  border-radius: 0.5vw;
+}
+
+.right-card2{
+  display: inline-block;
+  width: 13vw;
+  height: 14vh;
+  margin: 0 2vw 10vh 2vw;
+  background-color: #19191b;
+  border-radius: 0.5vw;
+}
+
+/*style for a card image*/
+.card-image{
+  margin: 0 5% 0.1% 5%;
+  width: 90%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.card-image2{
+  margin: 5% 0 0 43%;
+  width: auto;
+  height: 25%;
+}
+
+.card-icon{
+  margin: 0 0 0 2%;
+  width: 1vw;
+  height: auto;
+}
+
+/*style for card texts*/
+.h6{
+  text-align: left;
+  font-family: K2D;
+  font-size: 1.5vh;
+  font-weight: bold;
+  margin-left: 0.5vw;
+}
+.h7{
+  text-align: left;
+  font-family: K2D;
+  font-size: 1.2vh;
+  margin-left: 0.5vw;
+}
+
+.h8{
+  margin-top: 2%;
+  font-family: K2D;
+  font-size: 1.5vh;
+  font-weight: bold;
+}
+.h9{
+  margin-top: 2%;
+  font-family: K2D;
+  font-size: 1.2vh;
+  text-decoration: underline;
+  color:#EBDFDF ;
+}
+.h10{
+  color: black;
+  text-align: left;
+  font-size: 22px;
+  margin: 0 8vw 0 8vw;
+}
+.h5,h10{
+  display: inline-block;
+}
+.vertical-line {
+  display: inline;
+  border-left: 3px solid black;  
+  height: 16vh;  
+  margin-top: 2vh;
+}

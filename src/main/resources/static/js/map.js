@@ -84,7 +84,7 @@ fetch('/api/city')
           .catch(error => {
             console.error('Error:', error);
           });
-
+       
 
         // Fetch activities data for the chosen city
         fetch('/api/activities', {
@@ -155,25 +155,3 @@ const handleMarkerClick = (city_name, marker) => {
 
 
 
-
-/*
-var data = "sssssssssssss";
-  fetch('/api/fake',{
-    method: 'POST',
-    headers: {
-      'Content-Type': 'text/plain', // Set the content type according to your API requirements
-    },
-    body: data, 
-  })  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-    })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-  */
