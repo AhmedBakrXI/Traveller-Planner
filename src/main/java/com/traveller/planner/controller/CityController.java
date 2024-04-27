@@ -42,7 +42,7 @@ public class CityController {
         return flightService.getAllFlightsByDestinationAndCity(destination);
     }
 
-    @GetMapping("/activities")
+    @PostMapping("/activities")
     public List<ActivityModel> getActivity(@RequestBody String destination) {
         return activityService.getAllActivities(destination);
     }
