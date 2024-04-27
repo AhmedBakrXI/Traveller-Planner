@@ -237,7 +237,7 @@ color: #fff;
         .sidebar img{
           display: block;
           height: 60px;
-          width: 50px;
+          width: 45px;
           padding-bottom: 30px;
           padding-left: 7px;
           
@@ -261,6 +261,37 @@ div.leaflet-control-zoom.leaflet-bar.leaflet-control{
             margin-left: 95vw;
             margin-top:85vh;
 }
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding: 3px;
+}
+
+.inner img {
+  width: 30vw; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px;
+}
+
+.inner h1 {
+  font-size: 40px; /* Adjust as needed */
+  font-family: 'Great Vibes', cursive;
+}
+
+.inner h3 {
+  font-size: 21px; /* Adjust as needed */
+}
+
+.inner p {
+  font-size: 18px; /* Adjust as needed */
+  font-family: Garamond, serif;
+}
+
+
 
 
 

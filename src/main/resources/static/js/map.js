@@ -30,34 +30,33 @@ var flagIcon = L.icon({ // Flag icon
 var chosenMarker = null; // Variable to store the currently chosen marker
 var chosenCity = null; // Variable to store the name of the chosen city
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Fetch city data when the page loads
-    fetch('/api/city')
-    .then(response => response.json())
-    .then(data => {
-      console.log("page loaded");
-      data.forEach(city => {
-        const lat = city.lat;
-        const lng = city.city_long;
-        const city_name = city.cityName;
-        const cityInfo = city.info;
-        
-        const marker = L.marker([lat, lng], { icon: defaultIcon }).addTo(map);
-  
-        marker.bindPopup(`<b>${city_name}</b><br>${cityInfo}`).openPopup();
-  
-        // Event listener for marker click
-        marker.on('click', function(e) {
-          handleMarkerClick(city_name, marker);
-          console.log(chosenCity);
-          // Fetch accommodations data for the chosen city
-          fetch('/api/accomodations', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain', // Set the content type according to your API requirements
-            },
-            body: chosenCity, 
-          })
+// Fetch city data when the page loads
+fetch('/api/city')
+  .then(response => response.json())
+  .then(data => {
+    console.log("page loaded");
+    data.forEach(city => {
+      const lat = city.lat;
+      const lng = city.city_long;
+      const city_name = city.cityName;
+      const cityInfo = city.info;
+
+      const marker = L.marker([lat, lng], { icon: defaultIcon }).addTo(map);
+
+      marker.bindPopup(`<b>${city_name}</b><br>${cityInfo}`).openPopup();
+
+      // Event listener for marker click
+      marker.on('click', function(e) {
+        handleMarkerClick(city_name, marker);
+
+        // Fetch accommodations data for the chosen city
+        fetch('/api/accommodations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain', // Set the content type according to your API requirements
+          },
+          body: chosenCity,
+        })
           .then(response => {
             if (!response.ok) {
               throw new Error('Network response was not ok');
@@ -67,16 +66,16 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(data => {
             // Clear previous accommodation elements
             document.getElementById('offcanvasAccommodations').innerHTML = '';
-      
+
             // Assuming data is an array of accommodations objects
-            data.forEach(accomodation => {
+            data.forEach(accommodations => {
               // Create HTML elements to display accommodation information
               const accommodationElement = document.createElement('div');
-              accommodationElement.innerHTML = `
-                <img src="${accomodation.image_url}" alt="${accomodation.hotelName}">
-                <h3>${accomodation.hotelName}</h3>
-                <p>Stars: ${accomodation.stars}</p>
-                <p>Price: ${accomodation.price}</p>
+              accommodationElement.innerHTML = `<div class="inner">
+              <h1>${accommodations.hotel_name}</h1>
+              <img src="${accommodations.image_url || 'images/home_page/hotel.jpg'}" alt="${accommodations.hotelName}">
+              <p>Stars: ${accommodations.stars}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price: ${accommodations.price}</p>
+            </div>
               `;
               // Append the HTML elements to the accommodations sidebar
               document.getElementById('offcanvasAccommodations').appendChild(accommodationElement);
@@ -86,14 +85,14 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
           });
 
-          // Fetch activities data for the chosen city
-          fetch('/api/activies', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain', // Set the content type according to your API requirements
-            },
-            body: chosenCity, 
-          })
+        // Fetch activities data for the chosen city
+        fetch('/api/activities', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain', // Set the content type according to your API requirements
+          },
+          body: chosenCity,
+        })
           .then(response => {
             if (!response.ok) {
               throw new Error('Network response was not ok');
@@ -103,16 +102,17 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(data => {
             // Clear previous activities elements
             document.getElementById('offcanvasactivities').innerHTML = '';
-      
+
             // Assuming data is an array of activities objects
-            data.forEach(activity => {
+            data.forEach(activities => {
               // Create HTML elements to display activities information
               const activityElement = document.createElement('div');
-              activityElement.innerHTML = `
-                <img src="${activity.image_url}" alt="${activity.name}">
-                <h3>${activity.name}</h3>
-                <p>Info: ${activity.info}</p>
-                <p>Price: ${activity.price}</p>
+              activityElement.innerHTML = `<div class="inner">
+              <h1>${activities.name}</h1>
+              <img src="${activities.image || 'images/home_page/activity.jpg'}" alt="${activities.name}">
+              <p>${activities.info}</p>
+              <p>Price: ${activities.price}</p>
+            </div>
               `;
               // Append the HTML elements to the activities sidebar
               document.getElementById('offcanvasactivities').appendChild(activityElement);
@@ -121,12 +121,11 @@ document.addEventListener('DOMContentLoaded', function() {
           .catch(error => {
             console.error('Error:', error);
           });
-        });
       });
-    })
-    .catch(error => {
-      console.error('Error:', error);
     });
+  })
+  .catch(error => {
+    console.error('Error:', error);
   });
 
 // Function to handle marker click event
@@ -138,7 +137,7 @@ const handleMarkerClick = (city_name, marker) => {
   }
   // Update the chosenMarker variable with the clicked marker
   chosenMarker = marker;
-  
+
   if (marker.getIcon() === defaultIcon) {
     marker.setIcon(flagIcon);
   } else {
