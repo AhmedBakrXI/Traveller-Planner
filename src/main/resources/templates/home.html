@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,61 +13,69 @@
 
   <link rel="stylesheet" href="../css/home.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/leaflet.umd.js"></script>
   <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Font+Name">
 </head>
+
 <body>
 
-<div id="container">
-  <div class="topnav" id="mainnav">
-    <ul id="rightList">
-      <li><a href="/logout"><button id="toggleButtons">Log Out</button></a></li>
-      <li><a href="#"><button class="toggleButtons">About Us</button></a></li>
-    </ul>
-    <ul id="leftList">
-      <li><a href="#" class="active" id="explore"><button><i class="bx bx-compass"></i>Explore</button></a></li>
-    </ul>
-  </div>
-  <div>
-    <a href="#" class="icon" id="sidebarToggle">
-      <img src="/images/home_page/Ellipse.png" alt="earth">
-    </a>
-  </div>
-
-  <div id="map"></div>
-</div>
-
-<div class="container2">
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-
-    <a href="#flights" id="flightsBtn"><img src="/images/home_page/airplane.png" alt="Flights">Flights</a>
-    <a href="#accomodation" id="accsBtn"><img src="/images/home_page/accommodation.png" alt="Accommodations">Accommodations</a>
-    <a href="#activities" id="activitiesBtn"><img src="/images/home_page/lifestyle.png" alt="Activities">Activities</a>
-    <a href="#localattractions" id="localBtn"><img src="/images/home_page/location.png" alt="Local Attractions">Local Attractions</a>
-  </div>
-  
-
-  <!-- Offcanvas flights sidebar -->
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasflights" aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasLabel">Flights</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" ></button>
+  <div id="container">
+    <div class="topnav" id="mainnav">
+      <ul id="rightList">
+        <li><a href="/logout"><button id="toggleButtons">Log Out</button></a></li>
+        <li><a href="#"><button class="toggleButtons">About Us</button></a></li>
+      </ul>
+      <ul id="leftList">
+        <li><a href="#" class="active" id="explore"><button><i class="bx bx-compass"></i>Explore</button></a></li>
+      </ul>
     </div>
-    <div class="offcanvas-body">
-      <!-- Offcanvas content -->
-      This is the flights content.
+    <div>
+      <a href="#" class="icon" id="sidebarToggle">
+        <img src="/images/home_page/Ellipse.png" alt="earth">
+      </a>
+    </div>
+
+    <div id="map"></div>
+  </div>
+
+  <div class="container2">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+
+      <a href="#flights" id="flightsBtn"><img src="/images/home_page/airplane.png" alt="Flights">Flights</a>
+      <a href="#accomodation" id="accsBtn"><img src="/images/home_page/accommodation.png"
+          alt="Accommodations">Accommodations</a>
+      <a href="#activities" id="activitiesBtn"><img src="/images/home_page/lifestyle.png"
+          alt="Activities">Activities</a>
+      <a href="#localattractions" id="localBtn"><img src="/images/home_page/location.png" alt="Local Attractions">Local
+        Attractions</a>
+    </div>
+
+
+    <!-- Offcanvas flights sidebar -->
+    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasflights"
+      aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLabel">Flights</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- Offcanvas content -->
+        This is the flights content.
+      </div>
     </div>
   </div>
-</div>
 
   <!-- Offcanvas Accommodations sidebar -->
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasAccommodations" aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasAccommodations"
+    aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasLabel">Accommodations</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -76,10 +85,11 @@
       This is the Accommodations content.
     </div>
   </div>
-</div>
+  </div>
 
   <!-- Offcanvas activities sidebar -->
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivities" aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivities"
+    aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasLabel">Activities</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -89,55 +99,59 @@
       This is the activities content.
     </div>
   </div>
-</div>
-
-<!-- Offcanvas local sidebar -->
-<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivitieslocal" aria-labelledby="offcanvasLabel" style="width: 35vw;">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasLabel">Local Attractions</h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body" style="height: 100%; overflow-y: auto;">
-    <!-- Offcanvas content -->
-    <div style="height: 1000px;"> <!-- Example content height exceeding container height -->
-      This is the local activities content. <!-- Your actual content here -->
+
+  <!-- Offcanvas local sidebar -->
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivitieslocal"
+    aria-labelledby="offcanvasLabel" style="width: 35vw;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasLabel">Local Attractions</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" style="height: 100%; overflow-y: auto;">
+      <!-- Offcanvas content -->
+      <div style="height: 1000px;"> <!-- Example content height exceeding container height -->
+        This is the local activities content. <!-- Your actual content here -->
+      </div>
     </div>
   </div>
-</div>
 
 
 
-</div>
+  </div>
 
-<script src="../js/map.js"></script>
-<script src="../js/home.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="../js/map.js"></script>
+  <script src="../js/home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-<script>
-  $(document).ready(function() {
-    $('#flightsBtn').click(function() {
-      $('#offcanvasflights').offcanvas('show');
+  <script>
+    $(document).ready(function () {
+      $('#flightsBtn').click(function () {
+        $('#offcanvasflights').offcanvas('show');
+      });
     });
-  });
 
-  $(document).ready(function() {
-    $('#accsBtn').click(function() {
-      $('#offcanvasAccommodations').offcanvas('show');
+    $(document).ready(function () {
+      $('#accsBtn').click(function () {
+        $('#offcanvasAccommodations').offcanvas('show');
+      });
     });
-  });
-  $(document).ready(function() {
-    $('#activitiesBtn').click(function() {
-      $('#offcanvasactivities').offcanvas('show');
+    $(document).ready(function () {
+      $('#activitiesBtn').click(function () {
+        $('#offcanvasactivities').offcanvas('show');
+      });
     });
-  });
 
-  $(document).ready(function() {
-    $('#localBtn').click(function() {
-      $('#offcanvasactivitieslocal').offcanvas('show');
+    $(document).ready(function () {
+      $('#localBtn').click(function () {
+        $('#offcanvasactivitieslocal').offcanvas('show');
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
+
 </html>
