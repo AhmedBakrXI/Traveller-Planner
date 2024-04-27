@@ -84,7 +84,96 @@ fetch('/api/city')
           .catch(error => {
             console.error('Error:', error);
           });
-       
+        
+          fetch('/api/local-attractions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain', // Set the content type according to your API requirements
+            },
+            body: chosenCity,
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+          .then(data => {
+           
+            // Clear previous local attractions elements
+            document.getElementById('offcanvasactivitieslocal').innerHTML = '';
+        
+            // Assuming data is an array of local attractions objects
+            data.forEach(local=> {
+              console.log("hey");
+              // Create HTML elements to display  information
+              const localElement = document.createElement('div');
+              localElement.innerHTML = `<div class="inner">
+              <h1>${local.name}</h1>
+              <img src="${local.image || 'images/home_page/activity.jpg'}" alt="${local.name}">
+              <p>${local.info}</p>
+              
+            </div>
+              `;
+              // Append the HTML elements to the local attractions sidebar
+              document.getElementById('offcanvasactivitieslocal').appendChild(localElement);
+            });
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+
+          var usercity = null;
+          fetch('/api/usercity')
+          .then(response => response.json())
+          .then(data => { 
+            usercity = data.cityName; // Extract cityName from the data object
+            console.log(usercity); // Log the city name to the console
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        
+           // Fetch flights data for the chosen city
+           fetch('/api/flights', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain', // Set the content type according to your API requirements
+            },
+            body: chosenCity,
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then(data => {
+              console.log("flight");
+              // Clear previous flights elements
+              document.getElementById('offcanvasflights').innerHTML = '';
+        
+              // Assuming data is an array of flights objects
+              data.forEach(flights => {
+                // Create HTML elements to display flights information
+                const flightsElement = document.createElement('div');
+                flightsElement.innerHTML = `<div class="inner">
+                <h1>${flights.company}</h1>
+                <p> from: ${flights.time_start} to ${flights.time_end} </p>
+                <p> from: ${usercity} to ${flights.destination} </p>
+                <p>Price: ${flights.price}</p>
+                <img src="${flights.logo || 'images/home_page/activity.jpg'}" alt="${flights.company}">
+                
+                
+              </div>
+                `;
+                // Append the HTML elements to the  flights sidebar
+                document.getElementById('offcanvasflights').appendChild(flightsElement);
+              });
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
 
         // Fetch activities data for the chosen city
         fetch('/api/activities', {
@@ -149,9 +238,3 @@ const handleMarkerClick = (city_name, marker) => {
 
  
     
-
-
-
-
-
-

@@ -16,6 +16,8 @@ body {
   height: 120px;
   /* Add margin for spacing */
   z-index: 1;
+  
+box-shadow: 0 0 10px white;
 
 
 
@@ -28,8 +30,7 @@ body {
  
 
   transform: scale(1.05); 
-
-box-shadow: 0 0 10px white; 
+ 
 
 
 
@@ -182,7 +183,7 @@ button:hover
 .sidebar {
   display: table;
   height: 100%;
-  width: 10vw;
+  width: 7vw;
   position: fixed;
   z-index: -1;
   top: 0;
@@ -199,7 +200,7 @@ button:hover
 display: block;
 color: #fff;
             text-decoration: none;
-            padding: 15px;
+            padding: 25px;
            
             transition: background-color 0.3s;
           
@@ -222,7 +223,7 @@ color: #fff;
 
         .sidebar a:hover {
           border-left: solid #135C7E 3px;
-       transition: border 0.3s ease;
+       
         } 
        
 
@@ -236,10 +237,10 @@ color: #fff;
 
         .sidebar img{
           display: block;
-          height: 60px;
-          width: 45px;
-          padding-bottom: 30px;
-          padding-left: 7px;
+          height: 50%;
+          width: 50%;
+          padding-bottom: 30%;
+          padding-left: 3%;
           
 
         }
@@ -265,6 +266,9 @@ div.leaflet-control-zoom.leaflet-bar.leaflet-control{
   overflow: scroll; 
   scrollbar-color: grey black;
   max-height: 80 vh;
+  opacity:0.9;
+ 
+  
 }
 
 .inner {
@@ -274,12 +278,15 @@ div.leaflet-control-zoom.leaflet-bar.leaflet-control{
   text-align: center;
   border-bottom: 1px solid #ccc;
   padding: 3px;
+  
 }
 
 .inner img {
   width: 30vw; /* Adjust as needed */
   height: auto; /* Maintain aspect ratio */
   margin-bottom: 10px;
+  
+
 }
 
 .inner h1 {
