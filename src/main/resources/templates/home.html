@@ -53,7 +53,7 @@
   
 
   <!-- Offcanvas flights sidebar -->
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasflights" aria-labelledby="offcanvasLabel" style="width: 35vw;">
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasflights" aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasLabel">Flights</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" ></button>
@@ -66,7 +66,7 @@
 </div>
 
   <!-- Offcanvas Accommodations sidebar -->
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasAccommodations" aria-labelledby="offcanvasLabel" style="width: 35vw;">
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasAccommodations" aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasLabel">Accommodations</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -79,7 +79,7 @@
 </div>
 
   <!-- Offcanvas activities sidebar -->
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivities" aria-labelledby="offcanvasLabel" style="width: 35vw;">
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivities" aria-labelledby="offcanvasLabel" style="width: 35vw;" data-bs-scroll="true">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasLabel">Activities</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -91,18 +91,20 @@
   </div>
 </div>
 
-  <!-- Offcanvas local sidebar -->
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivitieslocal" aria-labelledby="offcanvasLabel" style="width: 35vw;">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasLabel">Local Attractions</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <!-- Offcanvas content -->
-      This is the local content.
+<!-- Offcanvas local sidebar -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasactivitieslocal" aria-labelledby="offcanvasLabel" style="width: 35vw;">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasLabel">Local Attractions</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" style="height: 100%; overflow-y: auto;">
+    <!-- Offcanvas content -->
+    <div style="height: 1000px;"> <!-- Example content height exceeding container height -->
+      This is the local activities content. <!-- Your actual content here -->
     </div>
   </div>
 </div>
+
 
 
 </div>
