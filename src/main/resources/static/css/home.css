@@ -6,38 +6,28 @@ body {
 }
 
 
-.icon img{
-  position:absolute;
+.icon img {
+  position: absolute;
   top: -20px;
   left: -30px;
-    
-   border-radius: 100%;
+
+  border-radius: 100%;
   width: 120px;
   height: 120px;
   /* Add margin for spacing */
   z-index: 1;
-  
-box-shadow: 0 0 10px white;
+
+  box-shadow: 0 0 10px white;
 
 
 
 
 }
 
-.icon img:hover{
-
-  color: white; 
- 
-
-  transform: scale(1.05); 
- 
 
 
-
-}
-
-
-ul,li{
+ul,
+li {
   list-style: none;
 }
 
@@ -51,8 +41,8 @@ ul,li{
   z-index: 2;
   top: 0;
   left: 0;
-  background-color: #222; 
-  
+  background-color: #222;
+
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -68,23 +58,29 @@ ul,li{
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-  color: #ccc; 
+  color: #ccc;
 }
+
 .sidenav .closebtn:hover {
   color: #4eb19f;
 
-  
+
 }
 
 
 #main {
   transition: margin-left .5s;
-  padding: 0; /
+  padding: 0;/
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav input[type="text"] {width: 70%;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav input[type="text"] {
+    width: 70%;
+  }
 }
 
 .topnav {
@@ -94,7 +90,8 @@ ul,li{
   overflow: hidden;
   background-color: #202121;
   padding: 0;
-  border-bottom: 3px solid #ccc; /* Add a bottom border */
+  border-bottom: 3px solid #ccc;
+  /* Add a bottom border */
   text-align: center;
   justify-content: center;
 }
@@ -107,19 +104,22 @@ ul,li{
   padding: 14px 14px;
   text-decoration: none;
   display: block;
-  float: right; 
+  float: right;
   transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-margin-right: 7%;
-  
+  margin-right: 7%;
+
 
 }
-.topnav button{
- background-color: #135C7E; /* Green */
- width: 180%; /* Set a fixed width */
- height: 30px;
+
+.topnav button {
+  background-color: #135C7E;
+  /* Green */
+  width: 180%;
+  /* Set a fixed width */
+  height: 30px;
   border: none;
   color: white;
- display: block;
+  display: block;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -130,56 +130,58 @@ margin-right: 7%;
 
 
 }
-#leftList li{
 
-float: left;
-padding-left: 5%;
+#leftList li {
+
+  float: left;
+  padding-left: 5%;
 
 }
-#leftList{
+
+#leftList {
   position: relative;
   left: 0%;
 }
 
-#rightList{
+#rightList {
   position: relative;
   top: 10px;
   left: 40px;
 }
 
 
-button:hover
-{
- background-color:  #EBDFDF;
-          color: black;
+button:hover {
+  background-color: #EBDFDF;
+  color: black;
   transition: background-color 0.3s;
 }
 
 
-#map{
- position: absolute; 
- top: 0;
-  bottom: 0; 
-  left:0;
-   right:0;
-   width: 100%;
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: -1;
 }
 
-.topnav a.active { 
+.topnav a.active {
   text-shadow: 0 0 4px #00FFFF;
- 
+
 
 }
+
 #accommodation-list {
   max-height: 400px;
   overflow-y: auto;
 }
 
 .container {
- display: flex;
-  }
- 
+  display: flex;
+}
+
 .sidebar {
   display: table;
   height: 100%;
@@ -195,78 +197,81 @@ button:hover
   transition: width 0.5s ease;
   justify-content: center;
   align-items: center;
-}    
+}
+
 .sidebar a {
-display: block;
-color: #fff;
-            text-decoration: none;
-            padding: 25px;
-           
-            transition: background-color 0.3s;
-          
-            border-bottom: 30px;
-            border-color: white;
-            font-size: 12px;
-            
-            font-family: sans-serif;
-            font-stretch: condensed;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: #EBDFDF;
-            cursor: pointer;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 25px;
 
-        }
- 
-        /* Change background color on hover */
+  transition: background-color 0.3s;
 
-        .sidebar a:hover {
-          border-left: solid #135C7E 3px;
-       
-        } 
-       
+  border-bottom: 30px;
+  border-color: white;
+  font-size: 12px;
 
-        #explore i{
-         width: 15px;
-         height: 15px;
-          padding-right: 10%;
+  font-family: sans-serif;
+  font-stretch: condensed;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #EBDFDF;
+  cursor: pointer;
 
-        }
+}
+
+/* Change background color on hover */
+
+.sidebar a:hover {
+  border-left: solid #135C7E 3px;
+
+}
 
 
-        .sidebar img{
-          display: block;
-          height: 50%;
-          width: 50%;
-          padding-bottom: 30%;
-          padding-left: 3%;
-          
+#explore i {
+  width: 15px;
+  height: 15px;
+  padding-right: 10%;
 
-        }
+}
+
+
+.sidebar img {
+  display: block;
+  height: 50%;
+  width: 50%;
+  padding-bottom: 30%;
+  padding-left: 3%;
+
+
+}
 
 
 @font-face {
   font-family: 'CustomFont';
   src: url('../fonts/Arialn.ttf') format('ttf');
-      
+
   font-weight: normal;
   font-style: normal;
 }
 
 div.leaflet-ctrl-geocoder.leaflet-control {
-            margin-right:  3vw;
-            margin-top:15vh;
+  margin-right: 3vw;
+  margin-top: 15vh;
 }
-div.leaflet-control-zoom.leaflet-bar.leaflet-control{
-            margin-left: 95vw;
-            margin-top:85vh;
+
+div.leaflet-control-zoom.leaflet-bar.leaflet-control {
+  margin-left: 95vw;
+  margin-top: 85vh;
 }
-.offcanvas{
-  overflow: scroll; 
+
+.offcanvas {
+  overflow: scroll;
   scrollbar-color: grey black;
   max-height: 80 vh;
-  opacity:0.9;
- 
-  
+  opacity: 0.9;
+
+
 }
 
 .inner {
@@ -276,34 +281,32 @@ div.leaflet-control-zoom.leaflet-bar.leaflet-control{
   text-align: center;
   border-bottom: 1px solid #ccc;
   padding: 3px;
-  
+
 }
 
 .inner img {
-  width: 30vw; /* Adjust as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 30vw;
+  /* Adjust as needed */
+  height: auto;
+  /* Maintain aspect ratio */
   margin-bottom: 10px;
-  
+
 
 }
 
 .inner h1 {
-  font-size: 40px; /* Adjust as needed */
+  font-size: 40px;
+  /* Adjust as needed */
   font-family: 'Great Vibes', cursive;
 }
 
 .inner h3 {
-  font-size: 21px; /* Adjust as needed */
+  font-size: 21px;
+  /* Adjust as needed */
 }
 
 .inner p {
-  font-size: 18px; /* Adjust as needed */
+  font-size: 18px;
+  /* Adjust as needed */
   font-family: Garamond, serif;
 }
-
-
-
-
-
-
-
