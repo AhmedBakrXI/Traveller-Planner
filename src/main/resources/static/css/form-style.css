@@ -172,6 +172,9 @@ a:hover {
 
 }
 
+#city {
+    overflow: visible;
+}
 
 .register {
     text-align: center;
