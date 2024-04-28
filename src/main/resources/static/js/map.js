@@ -162,7 +162,7 @@ fetch('/api/city')
                 flightsElement.innerHTML = `<div class="inner">
                 <h1>${flights.company}</h1>
                 <p> from: ${flights.time_start} to ${flights.time_end} </p>
-                <p> from: ${usercity} to ${flights.destination} </p>
+                <p> from: ${flights.cityName} to ${flights.destination} </p>
                 <p>Price: ${flights.price}</p>
                 <img src="/images/logo/${flights.logo}" alt="${flights.company}">
 
