@@ -1,0 +1,35 @@
+@startuml
+
+' autonumber
+
+title "Login Sequence Diagram"
+
+actor Hamada as user
+
+entity "Login Screen" as login
+entity "App View" as app
+participant "Request Handler" as request
+entity "Authentication System" as auth
+
+database Database as db
+
+
+user -> login: Enter login request
+login -> request: Request Authentication
+request -> auth: Send request authentication
+auth -> db: Fetch database for authentication
+
+alt "Login success"
+    auth <-- db: retrieve user information
+    request <-- auth: Authenticated
+    auth --> login: Successful Login
+    login --> user: redirect to application home page
+    user -> app: redirect to the application home page
+else "Login failure"
+    db-->auth: User Not Found
+    auth --> request: Authentication Failed
+    request --> login: Failed to login
+    login --> user: Invalid Login
+end
+
+@enduml

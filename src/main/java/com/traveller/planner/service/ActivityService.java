@@ -1,19 +1,15 @@
 package com.traveller.planner.service;
 
-import com.traveller.planner.model.ActivityModel;
-import com.traveller.planner.model.UserModel;
-import com.traveller.planner.repository.ActivityRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.traveller.planner.model.ActivityModel;
+import com.traveller.planner.repository.ActivityRepository;
 
 @Service
 public class ActivityService {
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private ActivityRepository activityRepository;

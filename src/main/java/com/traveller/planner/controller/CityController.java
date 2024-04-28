@@ -1,18 +1,29 @@
 package com.traveller.planner.controller;
 
-import com.traveller.planner.model.*;
-import com.traveller.planner.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.traveller.planner.model.AccomodationModel;
+import com.traveller.planner.model.ActivityModel;
+import com.traveller.planner.model.CityModel;
+import com.traveller.planner.model.FlightModel;
+import com.traveller.planner.model.LocalAttractionModel;
+import com.traveller.planner.service.AccommodationService;
+import com.traveller.planner.service.ActivityService;
+import com.traveller.planner.service.CityService;
+import com.traveller.planner.service.FlightService;
+import com.traveller.planner.service.LocalAttractionService;
 
 @RestController
 @RequestMapping("/api")
 public class CityController {
 
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private CityService cityService;

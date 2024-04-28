@@ -1,0 +1,35 @@
+@startuml
+
+' autonumber
+
+title "Registration Sequence Diagram"
+
+actor "Ahmed Khaled" as user
+
+entity "Registration Screen" as registration
+entity "Login Screen" as login
+participant "Request Handler" as request
+entity "Authentication System" as auth
+
+database Database as db
+
+
+user -> registration: Enter registration request
+registration -> request: Request Registration
+request -> auth: Send request Registration
+auth -> db: Try to save the registration
+
+alt "Registration success"
+    auth <-- db: retrieve user information
+    request <-- auth: Authenticated
+    auth --> registration: Successful Registration
+    registration --> user: Registered Successfully
+    user -> login: redirect to the Login page
+else "Registration failure"
+    db-->auth: Username is used already
+    auth --> request: Registration Failed
+    request --> registration: Failed to Register
+    registration --> user: Invalid Registration
+end
+
+@enduml

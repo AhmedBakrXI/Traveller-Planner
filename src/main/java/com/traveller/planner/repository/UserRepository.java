@@ -1,10 +1,10 @@
 package com.traveller.planner.repository;
 
-import com.traveller.planner.model.UserModel;
-import org.apache.catalina.User;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import com.traveller.planner.model.UserModel;
 
 public interface UserRepository extends JpaRepository<UserModel, String> {
     Optional<UserModel> findByUsername(String userName);
