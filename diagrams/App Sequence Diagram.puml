@@ -1,35 +1,40 @@
-@startuml
+@startuml "App"
 
 ' autonumber
 
-title "Login Sequence Diagram"
+title "App Sequence Diagram"
 
 actor "SEMO" as user
 
-entity "Login Screen" as login
+
 entity "App View" as app
-participant "Request Handler" as request
-entity "Authentication System" as auth
+entity "Login Screen" as login
+participant "Server" as request
+entity "Rest Controller" as rest
 
 database Database as db
 
 
-user -> login: Enter login request
-login -> request: Request Authentication
-request -> auth: Send request authentication
-auth -> db: Fetch database for authentication
+user -> app: Click on marker on map
+app -> request: request city data
+request -> rest: fetch city data
+rest -> db: fetch city data
+db --> rest: return city data
+rest --> request: get city data
+app --> user: view city data
 
-alt "Login success"
-    auth <-- db: retrieve user information
-    request <-- auth: Authenticated
-    auth --> login: Successful Login
-    login --> user: redirect to application home page
-    user -> app: redirect to the application home page
-else "Login failure"
-    db-->auth: User Not Found
-    auth --> request: Authentication Failed
-    request --> login: Failed to login
-    login --> user: Invalid Login
-end
+user -> app: Click on menu option
+app -> request: request menu view
+request -> rest: request menu view
+rest -> db: fetch city option data
+db --> rest: retreive city data
+rest --> request: return images and data view
+request --> app: return images and data view
+app --> user: view request option data
 
+user -> app: click log out
+app -> request: request log out
+request --> app: redirect to login
+app --> user: redirect to login
+user -> login: redirected to login
 @enduml

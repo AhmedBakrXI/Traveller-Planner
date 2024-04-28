@@ -22,7 +22,7 @@ auth -> db: Fetch database for authentication
 alt "Login success"
     auth <-- db: retrieve user information
     request <-- auth: Authenticated
-    auth --> login: Successful Login
+    request --> login: Successful Login
     login --> user: redirect to application home page
     user -> app: redirect to the application home page
 else "Login failure"
