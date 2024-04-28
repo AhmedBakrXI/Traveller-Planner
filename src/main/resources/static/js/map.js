@@ -69,11 +69,12 @@ fetch('/api/city')
 
             // Assuming data is an array of accommodations objects
             data.forEach(accommodations => {
+            console.log(accommodations.image);
               // Create HTML elements to display accommodation information
               const accommodationElement = document.createElement('div');
               accommodationElement.innerHTML = `<div class="inner">
               <h1>${accommodations.hotel_name}</h1>
-              <img src="${accommodations.image_url || 'images/home_page/hotel.jpg'}" alt="${accommodations.hotelName}">
+              <img src="/images/accommodations/${accommodations.image}" alt="${accommodations.hotelName}">
               <p>Stars: ${accommodations.stars}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price: ${accommodations.price}</p>
             </div>
               `;
@@ -110,7 +111,7 @@ fetch('/api/city')
               const localElement = document.createElement('div');
               localElement.innerHTML = `<div class="inner">
               <h1>${local.name}</h1>
-              <img src="${local.image || 'images/home_page/activity.jpg'}" alt="${local.name}">
+              <img src="/images/Local Attractions/${local.image}" alt="${local.name}">
               <p>${local.info}</p>
               
             </div>
@@ -155,6 +156,7 @@ fetch('/api/city')
         
               // Assuming data is an array of flights objects
               data.forEach(flights => {
+                console.log(flights);
                 // Create HTML elements to display flights information
                 const flightsElement = document.createElement('div');
                 flightsElement.innerHTML = `<div class="inner">
@@ -162,8 +164,8 @@ fetch('/api/city')
                 <p> from: ${flights.time_start} to ${flights.time_end} </p>
                 <p> from: ${usercity} to ${flights.destination} </p>
                 <p>Price: ${flights.price}</p>
-                <img src="${flights.logo || 'images/home_page/activity.jpg'}" alt="${flights.company}">
-                
+                <img src="/images/logo/${flights.logo}" alt="${flights.company}">
+
                 
               </div>
                 `;
@@ -199,7 +201,7 @@ fetch('/api/city')
               const activityElement = document.createElement('div');
               activityElement.innerHTML = `<div class="inner">
               <h1>${activities.name}</h1>
-              <img src="${activities.image || 'images/home_page/activity.jpg'}" alt="${activities.name}">
+              <img src="/images/Activities/${activities.image}" alt="${activities.name}">
               <p>${activities.info}</p>
               <p>Price: ${activities.price}</p>
             </div>
