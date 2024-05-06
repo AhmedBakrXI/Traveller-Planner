@@ -4,7 +4,7 @@
 
 title "Registration Sequence Diagram"
 
-actor "Ahmed Khaled" as user
+actor "User" as user
 
 entity "Registration Screen" as registration
 entity "Login Screen" as login
@@ -22,7 +22,7 @@ auth -> db: Try to save the registration
 alt "Registration success"
     auth <-- db: retrieve user information
     request <-- auth: Authenticated
-    auth --> registration: Successful Registration
+    request --> registration: Successful Registration
     registration --> user: Registered Successfully
     user -> login: redirect to the Login page
 else "Registration failure"

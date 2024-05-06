@@ -4,7 +4,7 @@
 
 title "App Sequence Diagram"
 
-actor "SEMO" as user
+actor "User" as user
 
 
 entity "App View" as app

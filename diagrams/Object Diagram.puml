@@ -1,0 +1,133 @@
+@startuml
+
+object UserModel {
+    username = "example_user"
+    password = "example_password"
+    city = "example_city"
+}
+
+object CityModel {
+}
+
+object AccommodationModel {
+}
+
+object FlightModel {
+}
+
+object LocalAttractionModel {
+}
+
+object ActivityModel {
+}
+
+object MyUserDetailsService {
+    UserRepository = userRepository
+}
+
+object AppSecurityConfig {
+    MyUserDetailsService = myUserDetails
+}
+
+object MyAuthenticationSuccessHandler {
+}
+
+object UserRepository {
+}
+
+object ContentController {
+}
+
+object CityController {
+ AccommodationService = accommodationService
+ ActivityService = activityService
+ CityService = cityService
+ FlightService = flightService
+ LocalAttractionService = localAttractionService
+}
+
+object UserService {
+    UserRepository = userRepository
+    PasswordEncoder = passwordEncoder
+}
+
+object UserRepository {
+}
+
+object CityRepository {
+}
+
+object FlightRepository {
+}
+
+object LocalAttractionRepository {
+}
+
+object ActivityRepository {
+}
+
+object AccommodationRepository {
+}
+
+object CityService {
+    CityService = cityService
+}
+
+object FlightService {
+    FlightService = flightService
+}
+
+object LocalAttractionService {
+    LocalAttractionRepository = localAttractionRepository
+}
+
+object AccommodationService {
+    AccommodationRepository = accommodationRepository
+}
+
+object ActivityService {
+    ActivityRepository = activityRepository
+}
+
+UserModel -- MyUserDetailsService: Uses
+MyUserDetailsService -- UserDetailsService : Implements
+AppSecurityConfig -- UserDetailsService : Uses
+AppSecurityConfig -- MyUserDetailsService : Uses
+AppSecurityConfig -- UserRepository : Uses
+AppSecurityConfig -- ContentController: Uses
+AppSecurityConfig -- MyAuthenticationSuccessHandler: Uses
+
+ContentController -- CityController: Uses
+
+CityController -- FlightService
+CityController -- CityService
+CityController -- ActivityService
+CityController -- AccommodationService
+CityController -- LocalAttractionService
+
+UserService -- UserRepository: Uses
+UserService -- UserModel: Uses
+
+CityService -- CityRepository: Uses
+CityService -- CityModel: Uses
+
+ActivityService -- ActivityModel: Uses
+ActivityService -- ActivityRepository: Uses
+
+LocalAttractionService -- LocalAttractionModel: Uses
+LocalAttractionService -- LocalAttractionRepository: Uses
+
+FlightService -- FlightModel: Uses
+FlightService -- FlightRepository: Uses
+
+AccommodationService -- AccommodationModel: Uses
+AccommodationService -- AccommodationRepository: Uses
+
+UserRepository -- JpaRepository: Implements
+CityRepository -- JpaRepository: Implements
+FlightRepository -- JpaRepository: Implements
+ActivityRepository -- JpaRepository: Implements
+LocalAttractionRepository -- JpaRepository: Implements
+AccommodationRepository -- JpaRepository: Implements
+
+@enduml

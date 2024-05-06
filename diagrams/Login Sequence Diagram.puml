@@ -4,7 +4,7 @@
 
 title "Login Sequence Diagram"
 
-actor Hamada as user
+actor User as user
 
 entity "Login Screen" as login
 entity "App View" as app
