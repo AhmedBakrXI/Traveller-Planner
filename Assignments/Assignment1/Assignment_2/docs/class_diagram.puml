@@ -1,0 +1,132 @@
+@startuml "Class Diagram"
+
+class Airline {
+    - name: String
+    - country: Country
+    - fleets: List[Fleet]
+    - landingArrangments: List[Airline]
+    - aircrafts: List[Aircraft]
+
+    + Airline(name: String, country: Country)
+    + getName(): String
+    + getAircrafts(): List[Aircraft]
+    + getFleets(): List[Fleet]
+    + getCountry(): Country
+    + getAircraft(): Aircraft
+    + addFleet(type: AircraftType): Airline
+    + addLandingArrangement(airline: Airline): Airline
+    + addAircraft(aircraft: Aircraft): Airline
+    + getLandingArrangements(): Set[Airline]
+    + toString(): String
+}
+
+class Country {
+    - name: String
+    - cities: Set[City]
+    - airlines: Set[Airline]
+
+    + Country(name: String)
+    + getName(): String
+    + getAirlines(): Set[Airline]
+    + getAirports(): List[Airport]
+    + getCity(name: String): City
+    + getCities(): Set[City]
+    + getAirline(name: String): Airline
+
+    + addCity(name: String, type: CityType): City
+    + addAirline(name: String): Airline
+    + toString(): String
+}
+
+class Aircraft {
+    - id: int
+    - noOfAircrafts: int {static}
+    - type: AircraftType
+
+    + Aircraft(type: AircraftType)
+    + getId(): int
+    + getType(): AircraftType
+    + toString(): String
+}
+
+class Airport {
+    - name: String
+    - location: City
+    - aircraftLandings: Set[AircraftType]
+
+    + Airport(name: String, location: City)
+    + getName(): String
+    + getLocation(): City
+    + getAircraftTypes(): Set[AircraftType]
+
+    + setName(name: String): void
+    + addAircraftType(aircraftType: AircraftType): Airport
+    + toString(): String
+}
+
+class City {
+    - name: String
+    - type: CityType
+    - airports: Set[Airport]
+
+    + City(name: String, type: CityType)
+    + getName(): String
+    + getType(): CityType
+    + getAirports(): Set[Airport]
+    + getAirport(name: String): Airport
+
+    + addAirport(name: String): Airport
+    + toString(): String
+}
+
+class Fleet {
+    - weekNumber: int
+    - fromCity: City
+    - toCity: City
+    - aircraft: Aircraft
+
+    + Fleet(aircraft: Aircraft, fromCity: City, toCity: City, weekNumber: int)
+
+    + getWeekNumber(): int
+    + getFromCity(): City
+    + getToCity(): City
+    + getAircraft(): Aircraft
+    + updateWeekNumbers(weekNumber: int): void
+    + toString(): String
+}
+
+enum AircraftType {
+    - name: String
+    + AIRBUS_A320
+    + BOEING_757
+
+    AircraftType(name: String)
+    + getName(): String
+}
+
+enum CityType {
+    - name: String
+    + SMALL_CITY
+    + BIG_CITY
+
+    CityType(name: String)
+    + getName(): String
+}
+
+
+Country "1" *-- "*" City
+Country "1" *-- "*" Airline
+
+Airline "1" o-- "*" Aircraft
+
+City "1" *-- "*" Airport
+
+Aircraft ..> AircraftType: uses
+Airport ..> AircraftType: uses
+
+Airline "1" .. "*" Airline: has arrangment
+Airline "1" ..> "*" Fleet: has
+
+City ..> CityType: uses
+
+@enduml
