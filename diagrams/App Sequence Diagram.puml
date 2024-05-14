@@ -1,40 +1,19 @@
-@startuml "App"
+@startuml Wallet
 
-' autonumber
+title "Payment by Wallet"
 
-title "App Sequence Diagram"
-
-actor "User" as user
-
-
-entity "App View" as app
-entity "Login Screen" as login
-participant "Server" as request
-entity "Rest Controller" as rest
-
+actor Client as client
+entity Server as server
 database Database as db
 
+client -> server: Request buying products using wallet
+server -> db: Check for wallet money
+db --> server: Return wallet money
 
-user -> app: Click on marker on map
-app -> request: request city data
-request -> rest: fetch city data
-rest -> db: fetch city data
-db --> rest: return city data
-rest --> request: get city data
-app --> user: view city data
+alt "Enough money"
+server --> client: Validate payment
+else "Not enough Money"
+server --> client: You don't have enough money
+end
 
-user -> app: Click on menu option
-app -> request: request menu view
-request -> rest: request menu view
-rest -> db: fetch city option data
-db --> rest: retreive city data
-rest --> request: return images and data view
-request --> app: return images and data view
-app --> user: view request option data
-
-user -> app: click log out
-app -> request: request log out
-request --> app: redirect to login
-app --> user: redirect to login
-user -> login: redirected to login
 @enduml

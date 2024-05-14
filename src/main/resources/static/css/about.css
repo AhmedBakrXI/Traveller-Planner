@@ -177,6 +177,7 @@ button {
   margin: 0 3vw 5vh 3vw;
   background-color: #19191b;
   border-radius: 0.5vw;
+  filter: drop-shadow(3px 3px 3px #2B6D8B);
 }
 
 .left-card{
@@ -186,6 +187,7 @@ button {
   margin: 0 3vw 5vh 20vw;
   background-color: #19191b;
   border-radius: 0.5vw;
+  filter: drop-shadow(3px 3px 3px #2B6D8B);
 }
 
 .lleft-card{
@@ -195,6 +197,7 @@ button {
   margin: 0 3vw 5vh 36vw;
   background-color: #19191b;
   border-radius: 0.5vw;
+  filter: drop-shadow(3px 3px 3px #2B6D8B);
 }
 
 .right-card{
@@ -204,6 +207,7 @@ button {
   margin: 0 20vw 5vh 3vw;
   background-color: #19191b;
   border-radius: 0.5vw;
+  filter: drop-shadow(3px 3px 3px #2B6D8B);
 }
 
 .lright-card{
@@ -213,6 +217,7 @@ button {
   margin: 0 20vw 5vh 3vw;
   background-color: #19191b;
   border-radius: 0.5vw;
+  filter: drop-shadow(3px 3px 3px #2B6D8B);
 }
 
 .left-card2{
@@ -235,9 +240,10 @@ button {
 
 /*style for a card image*/
 .card-image{
-  margin: 0 5% 0.1% 5%;
+  margin: 0 5% 5% 5% ;
   width: 90%;
   height: 50%;
+  border-radius: 0 0 0.5vh 0.5vh;
   object-fit: cover;
 }
 
