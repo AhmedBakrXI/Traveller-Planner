@@ -1,3 +1,6 @@
+/**
+ * This class represents an accommodation entity in the application.
+ */
 package com.traveller.planner.model;
 
 import jakarta.persistence.Column;
@@ -16,14 +19,34 @@ import org.springframework.stereotype.Component;
 @Table(name = "accomodations")
 @Entity
 public class AccomodationModel {
+
+    /**
+     * The name of the hotel or accommodation.
+     */
     @Id
-    private String hotel_name;
+    private String hotelName;
+
+    /**
+     * The star rating of the accommodation.
+     */
     @Column
     private Integer stars;
+
+    /**
+     * The price of the accommodation.
+     */
     @Column
     private Double price;
+
+    /**
+     * The URL or path to the image of the accommodation.
+     */
     @Column
     private String image;
-    @Column(name = "city_name") // Use the correct field name in the database
-    private String cityName; // Use camel case for the variable name
+
+    /**
+     * The name of the city where the accommodation is located.
+     */
+    @Column(name = "city_name")
+    private String cityName;
 }
