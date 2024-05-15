@@ -1,3 +1,6 @@
+/**
+ * This class represents a local attraction entity in the application.
+ */
 package com.traveller.planner.model;
 
 import jakarta.persistence.Column;
@@ -16,12 +19,28 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @Table(name = "local_attractions")
 public class LocalAttractionModel {
+
+    /**
+     * The name of the local attraction.
+     */
     @Id
     private String name;
+
+    /**
+     * Information about the local attraction.
+     */
     @Column
     private String info;
+
+    /**
+     * The URL or path to the image of the local attraction.
+     */
     @Column
     private String image;
-    @Column(name = "city_name") // Use the correct field name in the database
-    private String cityName; // Use camel case for the variable name
+
+    /**
+     * The name of the city where the local attraction is located.
+     */
+    @Column(name = "city_name")
+    private String cityName;
 }
