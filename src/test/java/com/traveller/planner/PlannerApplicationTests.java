@@ -6,8 +6,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PlannerApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    /**
+     * This test method ensures that the Spring application context loads without errors.
+     */
+    @Test
+    void contextLoads() {
+    }
 
 }
